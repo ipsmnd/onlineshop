@@ -68,6 +68,9 @@ nav img {
 nav .searchbar {
   display: flex;
   gap: 0;
+  flex: 1;
+  max-width: 900px;
+  margin: 0 20px;
 }
 
 nav .searchbar button {
@@ -81,7 +84,9 @@ nav .searchbar button {
 }
 
 nav input {
-  width: 900px;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
   height: 40px;
   border-right: none;
   border-top-left-radius: 5px;
@@ -230,66 +235,53 @@ nav .links {
   text-decoration: none;
 }
 
-.show {
+.sidebar.show {
   left: 0;
 }
 
-/* media */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 998;
+  display: none;
+}
 
+.menu-overlay.show {
+  display: block;
+}
 
-@media only screen and (max-width: 1760px) {
+/* category strip: scroll sideways instead of hiding links */
+.nav2 > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
 
-  .nav2 ul li:nth-last-of-type(1),
-  .nav2 ul li:nth-last-of-type(2),
-  .nav2 ul li:nth-last-of-type(3) {
+.nav2 > div:nth-child(2)::-webkit-scrollbar {
+  display: none;
+}
+
+.nav2 ul {
+  white-space: nowrap;
+}
+
+.nav2 .menu {
+  flex: 0 0 auto;
+}
+
+nav .links > div {
+  min-width: 24px;
+  text-align: center;
+}
+
+/* media ---------------------------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 1100px) {
+  .nav2 .downloadApp {
     display: none;
-  }
-}
-
-@media only screen and (max-width: 1440px) {
-  .nav2 .downloadApp a {
-    font-size: 15px;
-  }
-
-  .nav2 {
-    padding: 0 10px;
-  }
-
-  .nav2 ul {
-    display: flex;
-    gap: 0;
-  }
-
-  .nav2 ul li a {
-    font-size: 13px;
-  }
-}
-
-@media only screen and (max-width: 1288px) {
-  nav input {
-    width: 600px;
-  }
-}
-
-@media only screen and (max-width: 1105px) {
-
-  .nav2 ul li:nth-last-of-type(1),
-  .nav2 ul li:nth-last-of-type(2),
-  .nav2 ul li:nth-last-of-type(3),
-  .nav2 ul li:nth-last-of-type(4),
-  .nav2 ul li:nth-last-of-type(5) {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  nav input {
-    width: 600px;
-  }
-
-  .nav2 ul {
-    display: flex;
-    gap: 0;
   }
 }
 
@@ -298,128 +290,119 @@ nav .links {
     padding: 0 20px;
   }
 
-  nav .searchbar {
-    margin: 0 15px;
-  }
-
   .nav2 {
     height: auto;
-    padding: 10px 20px;
+    padding: 8px 20px;
   }
 
   .sidebar {
     width: 280px;
-    backdrop-filter: blur(10px);
   }
 }
 
-@media only screen and (max-width: 804px) {
-  nav input {
-    width: 300px;
+@media only screen and (max-width: 768px) {
+  nav {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    padding: 8px 12px;
+  }
+
+  nav .barand {
+    order: 1;
   }
 
   nav img {
-    width: 100px;
+    width: 80px;
+    padding: 0;
   }
 
   nav .links {
-    gap: 15px;
-    font-size: 20px;
+    order: 2;
+    margin-left: auto;
+    gap: 18px;
+    font-size: 22px;
   }
-}
 
-@media only screen and (max-width: 692px) {
+  nav .searchbar {
+    order: 3;
+    flex: 1 0 100%;
+    max-width: none;
+    margin: 0;
+  }
+
   nav input {
-    width: 200px;
-    height: 30px;
+    height: 40px;
+    font-size: 16px; /* stops iOS zoom-on-focus */
   }
 
   nav .searchbar button {
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 498px) {
-  nav input {
-    width: 150px;
+    font-size: 16px;
   }
 
-  nav img {
-    width: 70px;
+  .links span {
+    font-size: 11px;
+    width: 16px;
+    height: 16px;
+    left: 14px;
+    top: -6px;
   }
 
-  nav .links {
-    gap: 10px;
-    font-size: 15px;
+  .bell span {
+    left: 12px;
+  }
+
+  .profilre_dropdown {
+    top: 52px;
+    right: 8px;
+  }
+
+  .nav2 ul li a {
+    font-size: 14px;
+    padding: 8px;
+    display: block;
   }
 }
 
 @media only screen and (max-width: 426px) {
-  nav {
-    padding: 0 10px;
+  .nav2 {
+    padding: 4px 12px;
+    gap: 8px;
   }
 
   .nav2 .menu {
-    font-size: 15px;
-    padding: 3px 5px;
-  }
-
-  .nav2 .downloadApp a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 14px;
-    padding: 3px 5px;
+    font-size: 16px;
+    padding: 6px 4px;
   }
 
   .sidebar {
     left: -120%;
-  }
-
-  .show {
-    left: 0;
-  }
-
-  .sidebar {
     width: 100%;
     gap: 15px;
   }
 
   .sidebar .top {
-    padding: 10px 30px;
+    padding: 12px 20px;
     background-color: #232f3e;
     font-size: 20px;
-    font-weight: bold;
   }
 
   .sidebar .top button {
-    font-size: 20px;
+    font-size: 24px;
+    padding: 4px 8px;
   }
 
   .sidebar ul {
-    padding: 0 15px;
-    gap: 15px;
+    padding: 0 20px;
     font-size: 15px;
   }
 
+  .sidebar ul li a {
+    display: block;
+    padding: 4px 0;
+  }
+
   .sidebar ul .title {
-    font-weight: bold;
-    font-size: 22px;
-  }
-
-  .nav2 .menu {
-    border: none;
-    padding: 0;
-    font-size: 13px;
-  }
-
-  .nav2 .downloadApp a {
-    font-size: 13px;
-    border: none;
-    padding: 0;
-  }
-
-  nav .links div:nth-of-type(1),
-  nav .links div:nth-of-type(3) {
-    display: none;
+    font-size: 20px;
   }
 }
