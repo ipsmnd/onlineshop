@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#7ddce0">
     <title>OnlineShop</title>
     <meta name="description" content="OnlineShop.com">
     <link rel="apple-touch-icon" href="assets/img/shoplogo.png">
@@ -18,10 +19,10 @@
 
     <section class="nav__side">
         <nav>
-            <div class="barand"><img src="assets/img/shoplogo.png" alt=""></div>
+            <div class="barand"><a href="./index.html"><img src="assets/img/shoplogo.png" alt="OnlineShop home"></a></div>
             <div class="searchbar">
-                <input type="text">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="search" placeholder="Search products" aria-label="Search products">
+                <button aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div class="links">
                 <div class="bell">
@@ -39,12 +40,12 @@
             <div class="profilre_dropdown">
                 <ul>
                     <li><a href="#">My Profile</a></li>
-                    <li><a href="../index.html">Sign in</a></li>
+                    <li><a href="#">Sign in</a></li>
                 </ul>
             </div>
         </nav>
         <div class="nav2">
-            <div class="menu showbtn">
+            <div class="menu showbtn" role="button" aria-label="Open menu">
                 <i class="fa-solid fa-bars "></i>
                 <span>All</span>
             </div>
@@ -63,7 +64,7 @@
                 </ul>
             </div>
             <div class="downloadApp">
-                <a href="#"> Shoping Make Easy | Download the app</a>
+                <a href="#"> Shopping Made Easy | Download the app</a>
             </div>
         </div>
 
@@ -75,7 +76,7 @@
                 <div><i class="fa-regular fa-circle-user"></i>
                     <span>Hello, sign in</span>
                 </div>
-                <div> <button class="showbtn"><i class="fa-solid fa-xmark"></i></button></div>
+                <div> <button class="showbtn" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button></div>
             </div>
             <ul>
                 <li>
@@ -88,7 +89,7 @@
             <hr>
             <ul>
                 <li>
-                    <div class="title">Digital contetn And Divices</div>
+                    <div class="title">Digital Content And Devices</div>
                 </li>
                 <li><a href="#">Echo & Alexa</a></li>
                 <li><a href="#">Fire TV</a></li>
@@ -103,15 +104,15 @@
                     <div class="title">Shop by Category</div>
                 </li>
                 <li><a href="#">Mobile & Computer</a></li>
-                <li><a href="#">TV, Applianes, Electronics</a></li>
-                <li><a href="#">Man's Fashion</a></li>
+                <li><a href="#">TV, Appliances, Electronics</a></li>
+                <li><a href="#">Men's Fashion</a></li>
                 <li><a href="#">Women's Fashion</a></li>
                 <li><a href="#">Kid's Fashion</a></li>
-                <li><a href="#">Home,Kichen</a></li>
+                <li><a href="#">Home &amp; Kitchen</a></li>
                 <li><a href="#">Baby Products</a></li>
                 <li><a href="#">Sports</a></li>
-                <li><a href="#">Fitnes</a></li>
-                <li><a href="#">Bag & Lugage</a></li>
+                <li><a href="#">Fitness</a></li>
+                <li><a href="#">Bags &amp; Luggage</a></li>
 
             </ul>
             <hr>
@@ -128,9 +129,9 @@
                 <li>
                     <div class="title">Help & settings</div>
                 </li>
-                <li><a href="#">Yuor Account</a></li>
+                <li><a href="#">Your Account</a></li>
                 <li><a href="#">Customer Service</a></li>
-                <li><a href="#">Singn In</a></li>
+                <li><a href="#">Sign In</a></li>
             </ul>
             <hr>
         </div>
@@ -149,13 +150,11 @@
     <section id="newsletter" class="section-p1">
         <div class="newstext">
             <h4>Sign Up for Newsletters</h4>
-            <p>Get Email updates about our latest shop and <span> special offers.</span> </p>
+            <p>Get email updates about our latest shop and <span> special offers.</span> </p>
         </div>
         <div class="form">
-            <input type="text" placeholder="Your email address">
+            <input type="email" placeholder="Your email address" aria-label="Email address">
             <button class="btn normal">Sign Up</button>
-        </div>
-
         </div>
 
     </section>
@@ -163,9 +162,9 @@
     <footer class="section-p1">
 
         <div class="col">
-            <a href="#"><img class="logo" src="assets/img/shoplogo.png"></a>
+            <a href="#"><img class="logo" src="assets/img/shoplogo.png" alt="OnlineShop logo"></a>
             <h4>Contact</h4>
-            <p><strong>Address:<strong> Ameerpet, Hyderabad, Telangana 500082</p>
+            <p><strong>Address:</strong> Ameerpet, Hyderabad, Telangana 500082</p>
             <p><strong>Phone:</strong> +91 78945-12345, +91 77856-12345</p>
             <p><strong>Hours:</strong> 10.00 Am to 11.00 PM, Mon - Sat</p>
 
@@ -215,25 +214,24 @@
                 <p>From App Store or Google Play</p>
 
                 <div class="row">
-                    <img src="https://i.postimg.cc/Y2s5mLdR/app.jpg" alt="">
-                    <img src="https://i.postimg.cc/7YvyWTS6/play.jpg" alt="">
+                    <img src="https://i.postimg.cc/Y2s5mLdR/app.jpg" alt="" loading="lazy">
+                    <img src="https://i.postimg.cc/7YvyWTS6/play.jpg" alt="" loading="lazy">
                 </div>
                 <p>Secured Payment Gateways</p>
-                <img src="https://i.postimg.cc/kgfzqVRW/pay.png" alt="">
-                <div class="coypright">
+                <img src="https://i.postimg.cc/kgfzqVRW/pay.png" alt="" loading="lazy">
+                <div class="copyright">
                     <p> 100% ORIGINAL guarantee for all products at OnlineShop.com </p>
                 </div>
             </div>
             
         </div>
 
-        <div class="coypright">
+        <div class="copyright">
             <p> © 2025 All rights reserved! made by OnlineShop </p>
         </div>
 
     </footer>
-</body>
-<!-- <script src="assets/script/script.js"></script> -->
 <script src="assets/script/main.js"></script>
+</body>
 
 </html>
