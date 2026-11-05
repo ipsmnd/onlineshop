@@ -1,45 +1,41 @@
-// $.noConflict();
+// Slide-out category menu + profile dropdown
+(function () {
+  const sidemenu = document.getElementById("sidemenu");
+  const dropdownBtn = document.getElementById("profile_dropdown");
+  const dropdown = document.querySelector(".profilre_dropdown");
 
-// jQuery(document).ready(function($) {
+  // dim overlay behind the menu (tap to close)
+  const overlay = document.createElement("div");
+  overlay.className = "menu-overlay";
+  document.body.appendChild(overlay);
 
-//     "use strict";
-//     var userid = localStorage.getItem('user_id');
-//     if (!userid) {
-//         window.location = "index.html";
-//     }
+  function setMenu(open) {
+    if (!sidemenu) return;
+    sidemenu.classList.toggle("show", open);
+    overlay.classList.toggle("show", open);
+    document.body.style.overflow = open ? "hidden" : "";
+  }
 
-//     [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
-//         new SelectFx(el);
-//     });
+  document.querySelectorAll(".showbtn").forEach((btn) => {
+    btn.addEventListener("click", () => setMenu(!sidemenu.classList.contains("show")));
+  });
 
-   
+  overlay.addEventListener("click", () => setMenu(false));
 
-// });
+  if (dropdownBtn && dropdown) {
+    dropdownBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("toggle_profile_dropdown");
+    });
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target)) dropdown.classList.remove("toggle_profile_dropdown");
+    });
+  }
 
-const bar = document.getElementById('bar')
-const close = document.getElementById('close')
-const nav = document.getElementById('navbar')
-
-if (bar) {
-  bar.addEventListener('click', () => {
-    nav.classList.add('active')
-  })
- 
- if (close) {
-   close.addEventListener('click', () => {
-     nav.classList.remove('active')
-   })
- }
-}
-
-
-Array.from(document.getElementsByClassName("showbtn")).map((btn) => {
-  btn.addEventListener("click", () => {
-      console.log("click")
-      document.getElementById("sidemenu").classList.toggle("show")
-  })
-})
-
-document.getElementById("profile_dropdown").addEventListener("click",()=>{
-  document.getElementsByClassName("profilre_dropdown")[0].classList.toggle("toggle_profile_dropdown")
-})
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      setMenu(false);
+      if (dropdown) dropdown.classList.remove("toggle_profile_dropdown");
+    }
+  });
+})();
